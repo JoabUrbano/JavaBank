@@ -36,14 +36,28 @@ public class ContaCorrente {
     }
 
     void sacar(double valor) {
-
+        if(valor > this.saldo) {
+            System.out.println("Saldo insuficiente para realizar o saque!");
+        }
+        else{
+            System.out.println("Valor sacado " + valor);
+            this.saldo -= valor;
+        }
     }
 
     void depositar(double valor) {
-
+        this.saldo += valor;
+        System.out.println("Deposito de " + valor + " realizado com sucesso!");
     }
 
     boolean transferir(double valor, ContaCorrente cc) {
+        if(valor > this.saldo) {
+            System.out.println("Saldo insuficiente para transferir!");
+            return false;
+        }
+        this.saldo -= valor;
+        cc.depositar(valor);
+        System.out.println("Tranferência de " + valor + " realizada com sucesso!");
         return true;
     }
 }
