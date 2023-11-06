@@ -4,6 +4,9 @@ public class Pessoa {
     private String nome;
     private double salario;
     private ContaCorrente conta;
+
+    public Pessoa() {}
+
     private SeguroVida seguro;
 
     public Pessoa(String nome, double salario, ContaCorrente conta, SeguroVida seguro) {

@@ -1,17 +1,32 @@
+import imd.ufrn.br.dao.PessoaDAO;
+import imd.ufrn.br.models.ContaCorrente;
+import imd.ufrn.br.models.Pessoa;
+import imd.ufrn.br.models.SeguroVida;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome! JOAB PATO 3!!!!!!!");
+        PessoaDAO daoP =  PessoaDAO.getInstance();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        ContaCorrente cc1 = new ContaCorrente();
+        cc1.setAgencia("1020-5");
+        cc1.setNumero("100.231-1");
+        cc1.setSaldo(0);
+        SeguroVida sv1 = new SeguroVida();
+        sv1.setNumero(1);
+        sv1.setBeneficiado("Maria da Silva");
+        sv1.setValor(10000);
+        Pessoa p1 = new Pessoa();
+        p1.setNome("Roberto Carlos");
+        p1.setSalario(500.0);
+        p1.setConta(cc1);
+        p1.setSeguro(sv1);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        daoP.cadastrarPessoa(p1);
+
+        daoP.listarPesoas();
+
+
     }
 }

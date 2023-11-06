@@ -7,6 +7,7 @@ public class SeguroVida {
     private double valor;
     private double taxa;
 
+    public SeguroVida() {}
 
     public SeguroVida(int numero, double salario, String beneficiado, double valor, double taxa) {
         this.numero = numero;
@@ -14,6 +15,17 @@ public class SeguroVida {
         this.beneficiado = beneficiado;
         this.valor = valor;
         this.taxa = taxa;
+    }
+
+    @Override
+    public String toString() {
+        return "SeguroVida{" +
+                "numero=" + numero +
+                ", salario=" + salario +
+                ", beneficiado='" + beneficiado + '\'' +
+                ", valor=" + valor +
+                ", taxa=" + taxa +
+                '}';
     }
 
     public int getNumero() {
