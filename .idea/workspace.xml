@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="698c50f6-d33f-496a-811e-5e5d5be155d9" name="Changes" comment="testar commit joab pato" />
+    <list default="true" id="698c50f6-d33f-496a-811e-5e5d5be155d9" name="Changes" comment="testar commit joab pato 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +21,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "luizgustavoou"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;luizgustavoou&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -99,12 +99,29 @@
       <option name="project" value="LOCAL" />
       <updated>1699310336876</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testar commit joab pato">
+      <option name="closed" value="true" />
+      <created>1699310418970</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699310418970</updated>
+    </task>
+    <task id="LOCAL-00005" summary="testar commit joab pato 2">
+      <option name="closed" value="true" />
+      <created>1699310497360</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699310497360</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="subir projeto" />
     <MESSAGE value="testar commit joab pato" />
-    <option name="LAST_COMMIT_MESSAGE" value="testar commit joab pato" />
+    <MESSAGE value="testar commit joab pato 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="testar commit joab pato 2" />
   </component>
 </project>
