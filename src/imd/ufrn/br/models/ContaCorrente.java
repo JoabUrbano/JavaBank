@@ -1,6 +1,6 @@
 package imd.ufrn.br.models;
 
-public class ContaCorrente {
+public class ContaCorrente implements ITributavel {
     private String agencia;
     private String numero;
     private double saldo;
@@ -47,7 +47,9 @@ public class ContaCorrente {
         this.saldo = saldo;
     }
 
-    void sacar(double valor) {
+    public void sacar(double valor) {
+        System.out.println("############## SACAR ##############");
+
         if(valor > this.saldo) {
             System.out.println("Saldo insuficiente para realizar o saque!");
         }
@@ -55,14 +57,24 @@ public class ContaCorrente {
             System.out.println("Valor sacado " + valor);
             this.saldo -= valor;
         }
+
+        System.out.println("############################################");
+
     }
 
-    void depositar(double valor) {
+    public void depositar(double valor) {
+        System.out.println("############## DEPOSITAR ##############");
+
         this.saldo += valor;
         System.out.println("Deposito de " + valor + " realizado com sucesso!");
+
+        System.out.println("############################################");
+
     }
 
-    boolean transferir(double valor, ContaCorrente cc) {
+    public boolean transferir(double valor, ContaCorrente cc) {
+        System.out.println("############## TRANSFERIR ##############");
+
         if(valor > this.saldo) {
             System.out.println("Saldo insuficiente para transferir!");
             return false;
@@ -70,6 +82,14 @@ public class ContaCorrente {
         this.saldo -= valor;
         cc.depositar(valor);
         System.out.println("Tranferência de " + valor + " realizada com sucesso!");
+
+        System.out.println("############################################");
+
         return true;
+    }
+
+    @Override
+    public double calcularTributos() {
+        return (this.saldo * 0.38) / 100;
     }
 }

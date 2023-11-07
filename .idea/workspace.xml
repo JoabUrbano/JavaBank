@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="698c50f6-d33f-496a-811e-5e5d5be155d9" name="Changes" comment="testar commit joab pato 3">
+    <list default="true" id="698c50f6-d33f-496a-811e-5e5d5be155d9" name="Changes" comment="implementar alguns metodos de PessoaDAO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/controllers/GeradorImpostoRenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/controllers/GeradorImpostoRenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/dao/PessoaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/dao/PessoaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/models/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/models/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/models/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/models/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/models/SeguroVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/models/SeguroVida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,20 +29,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "assignee": "luizgustavoou",
-      "author": "JoabUrbano"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;luizgustavoou&quot;,
+      &quot;author&quot;: &quot;JoabUrbano&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "luizgustavoou",
-    "author": "JoabUrbano"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;luizgustavoou&quot;,
+    &quot;author&quot;: &quot;JoabUrbano&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
