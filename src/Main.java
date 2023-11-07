@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         PessoaDAO daoP = PessoaDAO.getInstance();
 
+        // Registrar p1
         ContaCorrente cc1 = new ContaCorrente();
         cc1.setAgencia("1020-5");
         cc1.setNumero("100.231-1");
@@ -27,14 +28,17 @@ public class Main {
 
         daoP.cadastraPessoa(p1);
 
+        // Registrar p2
         ContaCorrente cc2 = new ContaCorrente();
         cc2.setAgencia("2105-4");
         cc2.setNumero("123.564-9");
         cc2.setSaldo(0);
+
         SeguroVida sv2 = new SeguroVida();
         sv2.setNumero(2);
         sv2.setBeneficiado("João Maria");
         sv2.setValor(15000);
+
         Pessoa p2 = new Pessoa();
         p2.setNome("Dom Pedro");
         p2.setSalario(1000.0);
@@ -43,6 +47,7 @@ public class Main {
 
         daoP.cadastraPessoa(p2);
 
+        // Registrar p3
         ContaCorrente cc3 = new ContaCorrente();
         cc3.setAgencia("3565-4");
         cc3.setNumero("584.557-3");
@@ -78,5 +83,11 @@ public class Main {
 
         // Listar as Pessoas
         daoP.listaPessoas();
+
+        // Listar os impostos
+        daoP.calcularTributosPessoas(); // TODO: Tá faltando ajeitar essa implementação.
+
+        // Listar o total de imposto e Pessoas associadas
+        daoP.imprimeImpostoTotal();
     }
 }

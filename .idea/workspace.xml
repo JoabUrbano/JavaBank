@@ -139,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699311392855</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implementar alguns metodos de PessoaDAO">
+      <option name="closed" value="true" />
+      <created>1699320305724</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699320305724</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,6 +166,7 @@
     <MESSAGE value="testar commit joab pato" />
     <MESSAGE value="testar commit joab pato 2" />
     <MESSAGE value="testar commit joab pato 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="testar commit joab pato 3" />
+    <MESSAGE value="implementar alguns metodos de PessoaDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementar alguns metodos de PessoaDAO" />
   </component>
 </project>
