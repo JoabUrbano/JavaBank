@@ -1,5 +1,8 @@
 package imd.ufrn.br.models;
 
+import imd.ufrn.br.utils.exceptions.MoneyNotAvailableException;
+import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
+
 public class ContaCorrente implements ITributavel {
     private String agencia;
     private String numero;
@@ -50,13 +53,12 @@ public class ContaCorrente implements ITributavel {
     public void sacar(double valor) {
         System.out.println("############## SACAR ##############");
 
-        if(valor > this.saldo) {
-            System.out.println("Saldo insuficiente para realizar o saque!");
+        if (valor > this.saldo) {
+            throw new MoneyNotAvailableException("Saldo insuficiente para realizar o saque na conta!");
         }
-        else{
-            System.out.println("Valor sacado " + valor);
-            this.saldo -= valor;
-        }
+
+        System.out.println("Valor sacado " + valor);
+        this.saldo -= valor;
 
         System.out.println("############################################");
 
@@ -65,6 +67,9 @@ public class ContaCorrente implements ITributavel {
     public void depositar(double valor) {
         System.out.println("############## DEPOSITAR ##############");
 
+        if (this.saldo > 3000) 
+            throw new MoneySoMuchException("A receita confiscou seu dinheiro! Pode parar a economia não!");
+
         this.saldo += valor;
         System.out.println("Deposito de " + valor + " realizado com sucesso!");
 
@@ -72,12 +77,11 @@ public class ContaCorrente implements ITributavel {
 
     }
 
-    public boolean transferir(double valor, ContaCorrente cc) {
+    public boolean transferir(double valor, ContaCorrente cc) throws MoneyNotAvailableException {
         System.out.println("############## TRANSFERIR ##############");
 
-        if(valor > this.saldo) {
-            System.out.println("Saldo insuficiente para transferir!");
-            return false;
+        if (valor > this.saldo) {
+            throw new MoneyNotAvailableException("Não há saldo disponível na conta " + cc);
         }
         this.saldo -= valor;
         cc.depositar(valor);
