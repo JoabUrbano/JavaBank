@@ -4,13 +4,19 @@ import imd.ufrn.br.utils.exceptions.MoneyNotAvailableException;
 import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
 
 public class ContaCorrente implements ITributavel {
+    //@ spec_public
     private String agencia;
+    //@ spec_public
     private String numero;
+    //@ spec_public
     private double saldo;
 
-    public ContaCorrente() {
-    }
-
+    //@ ensures agencia != null;
+    //@ ensures numero != null;
+    //@ requires saldo > 0;
+    //@ ensures this.agencia == agencia;
+    //@ ensures this.numero == numero;
+    //@ ensures this.saldo == saldo;
     public ContaCorrente(String agencia, String numero, double saldo) {
         this.agencia = agencia;
         this.numero = numero;
@@ -21,21 +27,13 @@ public class ContaCorrente implements ITributavel {
         return agencia;
     }
 
+    //@ requires agencia != null;
     public void setAgencia(String agencia) {
         this.agencia = agencia;
     }
 
     public String getNumero() {
         return numero;
-    }
-
-    @Override
-    public String toString() {
-        return "ContaCorrente{" +
-                "agencia='" + agencia + '\'' +
-                ", numero='" + numero + '\'' +
-                ", saldo=" + saldo +
-                '}';
     }
 
     public void setNumero(String numero) {
@@ -92,8 +90,21 @@ public class ContaCorrente implements ITributavel {
         return true;
     }
 
+    //@ also
+    //@ requires saldo > 0;
+    //@ ensures \result == (this.saldo * 0.38) / 100;
     @Override
     public double calcularTributos() {
         return (this.saldo * 0.38) / 100;
+    }
+
+    //@ ensures \result != null;
+    @Override
+    public String toString() {
+        return "ContaCorrente{" +
+                "agencia='" + agencia + '\'' +
+                ", numero='" + numero + '\'' +
+                ", saldo=" + saldo +
+                '}';
     }
 }

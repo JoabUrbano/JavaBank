@@ -1,14 +1,22 @@
 package imd.ufrn.br.models;
 
 public class SeguroVida implements ITributavel {
+    //@ spec_public
     private int numero;
+    //@ spec_public
     private double salario;
+    //@ spec_public
     private String beneficiado;
+    //@ spec_public
     private double valor;
+    //@ spec_public
     private double taxa;
 
     public SeguroVida() {}
 
+    //@ ensure salario > 0;
+    //@ ensure valor > 0;
+    //@ ensure taxa > 0;
     public SeguroVida(int numero, double salario, String beneficiado, double valor, double taxa) {
         this.numero = numero;
         this.salario = salario;
@@ -17,6 +25,7 @@ public class SeguroVida implements ITributavel {
         this.taxa = taxa;
     }
 
+    //@ ensures \result != null;
     @Override
     public String toString() {
         return "SeguroVida{" +
