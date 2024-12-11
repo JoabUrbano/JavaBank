@@ -25,6 +25,7 @@ public class SeguroVida implements ITributavel {
         this.taxa = taxa;
     }
 
+    //@ also
     //@ ensures \result != null;
     @Override
     public String toString() {

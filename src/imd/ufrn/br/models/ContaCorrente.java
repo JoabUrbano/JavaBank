@@ -5,14 +5,16 @@ import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
 
 public class ContaCorrente implements ITributavel {
     //@ spec_public
-    private String agencia;
+    //@ non_null
+    private String agencia = "0";
     //@ spec_public
-    private String numero;
+    //@ non_null
+    private String numero = "0";
     //@ spec_public
     private double saldo;
 
-    //@ ensures agencia != null;
-    //@ ensures numero != null;
+    //@ requires agencia != null;
+    //@ requires numero != null;
     //@ requires saldo > 0;
     //@ ensures this.agencia == agencia;
     //@ ensures this.numero == numero;
@@ -23,70 +25,76 @@ public class ContaCorrente implements ITributavel {
         this.saldo = saldo;
     }
 
+    //@ pure
     public String getAgencia() {
-        return agencia;
+        return this.agencia;
     }
 
     //@ requires agencia != null;
+    //@ ensures this.agencia == agencia;
     public void setAgencia(String agencia) {
         this.agencia = agencia;
     }
 
+    //@ pure
     public String getNumero() {
-        return numero;
+        return this.numero;
     }
 
+    //@ requires numero != null;
+    //@ ensures this.numero == numero;
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    //@ pure
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
+    //@ requires saldo > 0;
+    //@ ensures this.saldo == saldo;
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
+    //@ requires valor > 0;
+    //@ requires valor < this.saldo;
+    //@ requires (this.saldo - valor) > 0;
+    //@ ensures this.saldo > 0;
+    //@ ensures this.saldo <= \old(this.saldo);
     public void sacar(double valor) {
-        System.out.println("############## SACAR ##############");
-
         if (valor > this.saldo) {
             throw new MoneyNotAvailableException("Saldo insuficiente para realizar o saque na conta!");
         }
 
-        System.out.println("Valor sacado " + valor);
         this.saldo -= valor;
-
-        System.out.println("############################################");
-
     }
 
+    //@ requires valor > 0;
+    //@ requires (this.saldo + valor) <= 3000;
+    //@ requires (this.saldo + valor) > this.saldo;
+    //@ ensures this.saldo <= 3000;
+    //@ ensures this.saldo >= \old(this.saldo);
     public void depositar(double valor) {
-        System.out.println("############## DEPOSITAR ##############");
-
         if (this.saldo > 3000) 
             throw new MoneySoMuchException("A receita confiscou seu dinheiro! Pode parar a economia não!");
 
         this.saldo += valor;
-        System.out.println("Deposito de " + valor + " realizado com sucesso!");
-
-        System.out.println("############################################");
-
     }
 
+    //@ requires valor > 0;
+    //@ requires valor < this.saldo;
+    //@ requires (this.saldo - valor) > 0;
+    //@ requires cc != null;
+    //@ ensures this.saldo > 0;
+    //@ ensures this.saldo <= \old(this.saldo);
     public boolean transferir(double valor, ContaCorrente cc) throws MoneyNotAvailableException {
-        System.out.println("############## TRANSFERIR ##############");
-
         if (valor > this.saldo) {
             throw new MoneyNotAvailableException("Não há saldo disponível na conta " + cc);
         }
         this.saldo -= valor;
         cc.depositar(valor);
-        System.out.println("Tranferência de " + valor + " realizada com sucesso!");
-
-        System.out.println("############################################");
-
         return true;
     }
 
@@ -98,13 +106,12 @@ public class ContaCorrente implements ITributavel {
         return (this.saldo * 0.38) / 100;
     }
 
-    //@ ensures \result != null;
     @Override
     public String toString() {
         return "ContaCorrente{" +
-                "agencia='" + agencia + '\'' +
-                ", numero='" + numero + '\'' +
-                ", saldo=" + saldo +
+                "agencia='" + this.agencia + '\'' +
+                ", numero='" + this.numero + '\'' +
+                ", saldo=" + this.saldo +
                 '}';
     }
 }
