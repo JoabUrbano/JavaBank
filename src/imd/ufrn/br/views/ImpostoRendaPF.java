@@ -101,13 +101,6 @@ public class ImpostoRendaPF {
 
         System.out.println();
 
-        // Transferências
-        try {
-            p2.getConta().transferir(15000000, cc3);
-        } catch (MoneyNotAvailableException e) {
-            System.out.println(e.getMessage());
-        }
-
         // Listar as Pessoas
         daoP.listaPessoas();
 
