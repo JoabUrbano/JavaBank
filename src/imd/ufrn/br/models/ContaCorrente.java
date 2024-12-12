@@ -6,10 +6,10 @@ import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
 public class ContaCorrente implements ITributavel {
     //@ spec_public
     //@ non_null
-    private String agencia = "0";
+    private String agencia = "0000-0";
     //@ spec_public
     //@ non_null
-    private String numero = "0";
+    private String numero = "0000000-00";
     //@ spec_public
     private double saldo;
 
@@ -73,7 +73,6 @@ public class ContaCorrente implements ITributavel {
 
     //@ requires valor > 0;
     //@ requires (this.saldo + valor) <= 3000;
-    //@ requires (this.saldo + valor) > this.saldo;
     //@ ensures this.saldo <= 3000;
     //@ ensures this.saldo >= \old(this.saldo);
     public void depositar(double valor) {
@@ -83,35 +82,11 @@ public class ContaCorrente implements ITributavel {
         this.saldo += valor;
     }
 
-    //@ requires valor > 0;
-    //@ requires valor < this.saldo;
-    //@ requires (this.saldo - valor) > 0;
-    //@ requires cc != null;
-    //@ ensures this.saldo > 0;
-    //@ ensures this.saldo <= \old(this.saldo);
-    public boolean transferir(double valor, ContaCorrente cc) throws MoneyNotAvailableException {
-        if (valor > this.saldo) {
-            throw new MoneyNotAvailableException("Não há saldo disponível na conta " + cc);
-        }
-        this.saldo -= valor;
-        cc.depositar(valor);
-        return true;
-    }
-
     //@ also
     //@ requires saldo > 0;
     //@ ensures \result == (this.saldo * 0.38) / 100;
     @Override
     public double calcularTributos() {
         return (this.saldo * 0.38) / 100;
-    }
-
-    @Override
-    public String toString() {
-        return "ContaCorrente{" +
-                "agencia='" + this.agencia + '\'' +
-                ", numero='" + this.numero + '\'' +
-                ", saldo=" + this.saldo +
-                '}';
     }
 }
