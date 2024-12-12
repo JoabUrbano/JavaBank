@@ -16,9 +16,10 @@ public class Pessoa implements ITributavel {
 
     public Pessoa() {}
 
+    //@ requires nome != null;
     //@ requires salario > 0;
-    //@ ensures nome != null;
-    //@ ensures conta != null;
+    //@ requires conta != null;
+    //@ requires seguro != null;
     //@ ensures this.nome == nome;
     //@ ensures this.salario == salario;
     //@ ensures this.conta == conta;
@@ -30,6 +31,7 @@ public class Pessoa implements ITributavel {
         this.seguro = seguro;
     }
 
+    //@ pure
     public String getNome() {
         return nome;
     }
@@ -40,6 +42,7 @@ public class Pessoa implements ITributavel {
         this.nome = nome;
     }
 
+    //@ pure
     public double getSalario() {
         return salario;
     }
@@ -50,6 +53,7 @@ public class Pessoa implements ITributavel {
         this.salario = salario;
     }
 
+    //@ pure
     public ContaCorrente getConta() {
         return conta;
     }
@@ -60,10 +64,12 @@ public class Pessoa implements ITributavel {
         this.conta = conta;
     }
     
+    //@ pure
     public SeguroVida getSeguro() {
         return seguro;
     }
 
+    //@ requires seguro != null;
     //@ ensures this.seguro == seguro;
     public void setSeguro(SeguroVida seguro) {
         this.seguro = seguro;
