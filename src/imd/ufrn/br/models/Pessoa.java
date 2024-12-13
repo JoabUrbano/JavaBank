@@ -5,7 +5,6 @@ public class Pessoa implements ITributavel {
     //@ non_null
     private String nome = "";
     //@ spec_public
-    //@ non_null
     private double salario = 0;
     //@ spec_public
     //@ nullable
@@ -53,7 +52,8 @@ public class Pessoa implements ITributavel {
         this.salario = salario;
     }
 
-    //@ pure
+    //@ requires this.conta != null;
+    //@ ensures \result != null;
     public ContaCorrente getConta() {
         return conta;
     }
@@ -64,7 +64,8 @@ public class Pessoa implements ITributavel {
         this.conta = conta;
     }
     
-    //@ pure
+    //@ requires this.seguro != null;
+    //@ ensures \result != null;
     public SeguroVida getSeguro() {
         return seguro;
     }
@@ -76,10 +77,10 @@ public class Pessoa implements ITributavel {
     }
 
     //@ also
-    //@ requires salario > 0;
+    //@ requires this.salario > 0;
     //@ ensures \result == (11 * salario) / 100;
     @Override
     public double calcularTributos() {
-        return (11 * salario) / 100;
+        return (11 * this.salario) / 100;
     }
 }
