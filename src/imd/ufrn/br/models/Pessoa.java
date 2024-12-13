@@ -78,7 +78,8 @@ public class Pessoa implements ITributavel {
 
     //@ also
     //@ requires this.salario > 0;
-    //@ ensures \result == (11 * salario) / 100; pure
+    //@ ensures \result == (11 * salario) / 100;
+    //@ ensures \result > 0; pure
     @Override
     public double calcularTributos() {
         return (11 * this.salario) / 100;

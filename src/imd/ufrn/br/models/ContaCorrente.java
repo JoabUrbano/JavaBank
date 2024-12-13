@@ -91,6 +91,8 @@ public class ContaCorrente implements ITributavel {
     //@ also
     //@ requires saldo > 0;
     //@ ensures \result == (this.saldo * 0.38) / 100;
+    //@ ensures \result > 0;
+    //@ pure
     @Override
     public double calcularTributos() {
         return (this.saldo * 0.38) / 100;

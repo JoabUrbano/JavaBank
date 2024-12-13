@@ -93,6 +93,9 @@ public class SeguroVida implements ITributavel {
         this.taxa = taxa;
     }
 
+    //@ also
+    //@ ensures \result == 31.50;
+    //@ ensures \result > 0;
     //@ pure
     @Override
     public double calcularTributos() {
