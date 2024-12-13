@@ -10,7 +10,6 @@ public class GeradorImpostoRenda {
         totalTributo += pessoa.getSeguro().calcularTributos();
         totalTributo += pessoa.calcularTributos();
 
-
         return totalTributo;
     }
 }

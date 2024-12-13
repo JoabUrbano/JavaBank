@@ -6,10 +6,10 @@ import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
 public class ContaCorrente implements ITributavel {
     //@ spec_public
     //@ non_null
-    private String agencia = "0000-0";
+    private String agencia;
     //@ spec_public
     //@ non_null
-    private String numero = "0000000-00";
+    private String numero;
     //@ spec_public
     private double saldo;
 

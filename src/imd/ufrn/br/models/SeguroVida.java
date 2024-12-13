@@ -7,7 +7,7 @@ public class SeguroVida implements ITributavel {
     private double salario;
     //@ spec_public
     //@ non_null
-    private String beneficiado = "";
+    private String beneficiado;
     //@ spec_public
     private double valor;
     //@ spec_public
@@ -86,6 +86,7 @@ public class SeguroVida implements ITributavel {
         this.taxa = taxa;
     }
 
+    //@ pure
     @Override
     public double calcularTributos() {
         return 31.50;

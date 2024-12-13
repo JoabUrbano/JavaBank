@@ -3,17 +3,15 @@ package imd.ufrn.br.models;
 public class Pessoa implements ITributavel {
     //@ spec_public
     //@ non_null
-    private String nome = "";
+    private String nome;
     //@ spec_public
-    private double salario = 0;
+    private double salario;
     //@ spec_public
-    //@ nullable
+    //@ non_null
     private ContaCorrente conta;
     //@ spec_public
-    //@ nullable
+    //@ non_null
     private SeguroVida seguro;
-
-    public Pessoa() {}
 
     //@ requires nome != null;
     //@ requires salario > 0;
@@ -36,6 +34,7 @@ public class Pessoa implements ITributavel {
     }
 
     //@ requires nome != null;
+    //@ assigns this.nome;
     //@ ensures this.nome == nome;
     public void setNome(String nome) {
         this.nome = nome;
@@ -47,30 +46,31 @@ public class Pessoa implements ITributavel {
     }
 
     //@ requires salario > 0;
+    //@ assigns this.salario;
     //@ ensures this.salario == salario;
     public void setSalario(double salario) {
         this.salario = salario;
     }
 
-    //@ requires this.conta != null;
-    //@ ensures \result != null;
+    //@ pure
     public ContaCorrente getConta() {
         return conta;
     }
 
     //@ requires conta != null;
+    //@ assigns this.conta;
     //@ ensures this.conta == conta;
     public void setConta(ContaCorrente conta) {
         this.conta = conta;
     }
     
-    //@ requires this.seguro != null;
-    //@ ensures \result != null;
+    //@ pure
     public SeguroVida getSeguro() {
         return seguro;
     }
 
     //@ requires seguro != null;
+    //@ assigns this.seguro;
     //@ ensures this.seguro == seguro;
     public void setSeguro(SeguroVida seguro) {
         this.seguro = seguro;
@@ -78,7 +78,7 @@ public class Pessoa implements ITributavel {
 
     //@ also
     //@ requires this.salario > 0;
-    //@ ensures \result == (11 * salario) / 100;
+    //@ ensures \result == (11 * salario) / 100; pure
     @Override
     public double calcularTributos() {
         return (11 * this.salario) / 100;
