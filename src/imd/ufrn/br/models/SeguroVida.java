@@ -37,6 +37,7 @@ public class SeguroVida implements ITributavel {
     }
 
     //@ requires numero > 0;
+    //@ assigns this.numero;
     //@ ensures this.numero == numero;
     public void setNumero(int numero) {
         this.numero = numero;
@@ -48,6 +49,7 @@ public class SeguroVida implements ITributavel {
     }
 
     //@ requires salario >= 0;
+    //@ assigns this.salario;
     //@ ensures this.salario == salario;
     public void setSalario(double salario) {
         this.salario = salario;
@@ -59,6 +61,7 @@ public class SeguroVida implements ITributavel {
     }
 
     //@ requires beneficiado != null;
+    //@ assigns this.beneficiado;
     //@ ensures this.beneficiado == beneficiado;
     public void setBeneficiado(String beneficiado) {
         this.beneficiado = beneficiado;
@@ -70,6 +73,7 @@ public class SeguroVida implements ITributavel {
     }
 
     //@ requires valor > 0;
+    //@ assigns this.valor;
     //@ ensures this.valor == valor;
     public void setValor(double valor) {
         this.valor = valor;
@@ -81,6 +85,7 @@ public class SeguroVida implements ITributavel {
     }
 
     //@ requires taxa > 0;
+    //@ assigns this.taxa;
     //@ ensures this.taxa == taxa;
     public void setTaxa(double taxa) {
         this.taxa = taxa;

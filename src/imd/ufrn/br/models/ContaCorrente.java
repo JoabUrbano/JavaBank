@@ -31,6 +31,7 @@ public class ContaCorrente implements ITributavel {
     }
 
     //@ requires agencia != null;
+    //@ assigns this.agencia;
     //@ ensures this.agencia == agencia;
     public void setAgencia(String agencia) {
         this.agencia = agencia;
@@ -42,6 +43,7 @@ public class ContaCorrente implements ITributavel {
     }
 
     //@ requires numero != null;
+    //@ assigns this.numero;
     //@ ensures this.numero == numero;
     public void setNumero(String numero) {
         this.numero = numero;
@@ -53,6 +55,7 @@ public class ContaCorrente implements ITributavel {
     }
 
     //@ requires saldo > 0;
+    //@ assigns this.saldo;
     //@ ensures this.saldo == saldo;
     public void setSaldo(double saldo) {
         this.saldo = saldo;
@@ -61,18 +64,20 @@ public class ContaCorrente implements ITributavel {
     //@ requires valor > 0;
     //@ requires valor < this.saldo;
     //@ requires (this.saldo - valor) > 0;
+    //@ assigns this.saldo;
     //@ ensures this.saldo > 0;
     //@ ensures this.saldo <= \old(this.saldo);
     public void sacar(double valor) {
         if (valor > this.saldo) {
             throw new MoneyNotAvailableException("Saldo insuficiente para realizar o saque na conta!");
         }
-
+        //@ assume this.saldo == \old(this.saldo);
         this.saldo -= valor;
     }
 
     //@ requires valor > 0;
     //@ requires (this.saldo + valor) <= 3000;
+    //@ assigns this.saldo;
     //@ ensures this.saldo <= 3000;
     //@ ensures this.saldo >= \old(this.saldo);
     public void depositar(double valor) {
