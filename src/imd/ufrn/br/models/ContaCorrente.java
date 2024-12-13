@@ -3,22 +3,23 @@ package imd.ufrn.br.models;
 import imd.ufrn.br.utils.exceptions.MoneyNotAvailableException;
 import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
 
+//@ non_null_by_default
 public class ContaCorrente implements ITributavel {
     //@ spec_public
-    //@ non_null
     private String agencia;
     //@ spec_public
-    //@ non_null
     private String numero;
     //@ spec_public
     private double saldo;
 
+    //@ public normal_behavior
     //@ requires agencia != null;
     //@ requires numero != null;
-    //@ requires saldo > 0;
+    //@ requires 0 < saldo < Double.MAX_VALUE;
     //@ ensures this.agencia == agencia;
     //@ ensures this.numero == numero;
     //@ ensures this.saldo == saldo;
+    //@ pure
     public ContaCorrente(String agencia, String numero, double saldo) {
         this.agencia = agencia;
         this.numero = numero;
@@ -71,7 +72,7 @@ public class ContaCorrente implements ITributavel {
         if (valor > this.saldo) {
             throw new MoneyNotAvailableException("Saldo insuficiente para realizar o saque na conta!");
         }
-        //@ assume this.saldo == \old(this.saldo);
+        //@ assert this.saldo == \old(this.saldo);
         this.saldo -= valor;
     }
 

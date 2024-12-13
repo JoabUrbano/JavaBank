@@ -13,16 +13,18 @@ public class SeguroVida implements ITributavel {
     //@ spec_public
     private double taxa;
 
-    //@ requires numero > 0;
-    //@ requires salario >= 0;
+    //@ public normal_behavior
+    //@ requires 0 < numero < Integer.MAX_VALUE;
+    //@ requires 0 <= salario < Double.MAX_VALUE;
     //@ requires beneficiado != null;
-    //@ requires valor > 0;
-    //@ requires taxa > 0;
+    //@ requires 0 < valor < Double.MAX_VALUE;
+    //@ requires 0 < taxa < Double.MAX_VALUE;
     //@ ensures this.numero == numero;
     //@ ensures this.salario == salario;
     //@ ensures this.beneficiado == beneficiado;
     //@ ensures this.valor == valor;
     //@ ensures this.taxa == taxa;
+    //@ pure
     public SeguroVida(int numero, double salario, String beneficiado, double valor, double taxa) {
         this.numero = numero;
         this.salario = salario;
