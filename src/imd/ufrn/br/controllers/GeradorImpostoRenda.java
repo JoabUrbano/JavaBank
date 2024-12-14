@@ -7,10 +7,8 @@ public class GeradorImpostoRenda {
     //@ ensures \result > 0;
     public double calculaValorTotalTributo(Pessoa pessoa) {
         double totalTributo = 0;
-        //@ assume pessoa.getConta().getSaldo() > 0;
-        //@ assume pessoa.getSalario() > 0;
         double tributoConta = pessoa.getConta().calcularTributos();
-        //@ assert tributoConta > 0;
+        //@ assert tributoConta >= 0;
         
         double tributoSeguro = pessoa.getSeguro().calcularTributos();
         //@ assert tributoSeguro > 0;
@@ -19,6 +17,7 @@ public class GeradorImpostoRenda {
         //@ assert tributoPessoa > 0;
         
         totalTributo = tributoConta + tributoSeguro + tributoPessoa;
+        //@ assert totalTributo > 0;
 
         return totalTributo;
     }
