@@ -13,9 +13,13 @@ public class SeguroVida implements ITributavel {
     //@ spec_public
     private double taxa;
 
+    //@ public invariant salario > 0;
+    //@ public invariant valor > 0;
+    //@ public invariant taxa > 0;
+
     //@ public normal_behavior
     //@ requires 0 < numero < Integer.MAX_VALUE;
-    //@ requires 0 <= salario < Double.MAX_VALUE;
+    //@ requires 0 < salario < Double.MAX_VALUE;
     //@ requires beneficiado != null;
     //@ requires 0 < valor < Double.MAX_VALUE;
     //@ requires 0 < taxa < Double.MAX_VALUE;
@@ -50,7 +54,7 @@ public class SeguroVida implements ITributavel {
         return salario;
     }
 
-    //@ requires salario >= 0;
+    //@ requires salario > 0;
     //@ assigns this.salario;
     //@ ensures this.salario == salario;
     public void setSalario(double salario) {
