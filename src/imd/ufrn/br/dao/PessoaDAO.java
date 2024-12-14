@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class PessoaDAO {
     GeradorImpostoRenda geradorImpostoRenda = new GeradorImpostoRenda();
+    //@ non_null
     private ArrayList<Pessoa> pessoas;
 
     private PessoaDAO() {
@@ -31,21 +32,6 @@ public class PessoaDAO {
         pessoas.remove(pessoa);
     }
 
-    public void listaPessoas() {
-        System.out.println("############## LISTAR PESSOAS ##############");
-
-        for (Pessoa pessoa : pessoas) {
-            System.out.println("Nome: " + pessoa.getNome());
-            System.out.println("Salário: " + pessoa.getSalario());
-            System.out.println(pessoa.getConta().toString());
-            System.out.println(pessoa.getSeguro().toString());
-            System.out.println("_______________________________________");
-        }
-
-        System.out.println("############################################");
-
-    }
-
     public double calcularTributosPessoas() {
         double impostoTotal = 0;
         double impostoIndividual = 0;
@@ -53,20 +39,16 @@ public class PessoaDAO {
         for (Pessoa pessoa : pessoas) {
             impostoIndividual = geradorImpostoRenda.calculaValorTotalTributo(pessoa);
             impostoTotal += impostoIndividual;
-            System.out.println("O imposto de " + pessoas.toString() + " é " + impostoIndividual + ".");
         }
-        System.out.println("############################################");
 
         return impostoTotal;
     }
-
     private Pessoa getMaiorPagador() {
         Pessoa pessoa = null;
-
         for (Pessoa pp : pessoas) {
             double tributoTotal = geradorImpostoRenda.calculaValorTotalTributo(pp);
 
-            if (pessoa == null || tributoTotal > geradorImpostoRenda.calculaValorTotalTributo(pessoa)) {
+            if (tributoTotal > geradorImpostoRenda.calculaValorTotalTributo(pessoa)) {
                 pessoa = pp;
             }
         }
@@ -84,15 +66,6 @@ public class PessoaDAO {
         }
 
         return pessoa;
-    }
-
-    public void imprimeImpostoTotal() {
-        double impostoTotal = calcularTributosPessoas();
-        Pessoa pessoaMaiorImposto = this.getMaiorPagador();
-        Pessoa pessoaMaiorSeguro = this.getMaiorSeguro();
-        System.out.println("Valor total de imposto a ser recolhido: " + impostoTotal);
-        System.out.println("Maior pagador de imposto: " + pessoaMaiorImposto.getNome());
-        System.out.println("Maior pagador de seguro " + pessoaMaiorSeguro.getNome());
     }
 
 }
