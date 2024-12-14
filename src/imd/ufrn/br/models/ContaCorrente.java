@@ -1,7 +1,6 @@
 package imd.ufrn.br.models;
 
 import imd.ufrn.br.utils.exceptions.MoneyNotAvailableException;
-import imd.ufrn.br.utils.exceptions.MoneySoMuchException;
 
 //@ non_null_by_default
 public class ContaCorrente implements ITributavel {
@@ -60,7 +59,6 @@ public class ContaCorrente implements ITributavel {
     //@ requires saldo > 0;
     //@ assigns this.saldo;
     //@ ensures this.saldo == saldo;
-    //@ ensures this.saldo >= 0;
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
@@ -69,7 +67,6 @@ public class ContaCorrente implements ITributavel {
     //@ requires valor <= this.saldo;
     //@ requires (this.saldo - valor) > 0;
     //@ assigns this.saldo;
-    //@ ensures this.saldo >= 0;
     //@ ensures this.saldo <= \old(this.saldo);
     public void sacar(double valor) {
         if (valor > this.saldo) {
@@ -81,10 +78,9 @@ public class ContaCorrente implements ITributavel {
 
     //@ requires valor > 0;
     //@ assigns this.saldo;
-    //@ ensures this.saldo >= \old(this.saldo);
+    //@ ensures this.saldo == \old(this.saldo) + valor;
     public void depositar(double valor) {
         this.saldo += valor;
-        //@ assert this.saldo >= 0;
     }
 
     //@ requires cc != null;

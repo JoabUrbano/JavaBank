@@ -11,6 +11,8 @@ public class Pessoa implements ITributavel {
     //@ spec_public
     private SeguroVida seguro;
 
+    //@ public invariant salario > 0;
+
     //@ public normal_behavior
     //@ requires nome != null;
     //@ requires 0 < salario < Double.MAX_VALUE;
@@ -81,7 +83,6 @@ public class Pessoa implements ITributavel {
     //@ ensures \result > 0; pure
     @Override
     public double calcularTributos() {
-        //@ assume this.salario > 0;
         return (11 * this.salario) / 100;
     }
 }
