@@ -17,6 +17,10 @@ public class SeguroVida implements ITributavel {
     //@ public invariant valor > 0;
     //@ public invariant taxa > 0;
 
+    // Garantir que o número do seguro só pode ser atualizado para cima quando houver mudanças,
+    // impedindo que haja atualizações erronias para um número já existente
+    //@ public constraint numero >= \old(numero);
+
     //@ public normal_behavior
     //@ requires 0 < numero < Integer.MAX_VALUE;
     //@ requires 0 < salario < Double.MAX_VALUE;
@@ -42,7 +46,7 @@ public class SeguroVida implements ITributavel {
         return numero;
     }
 
-    //@ requires numero > 0;
+    //@ requires numero > this.numero;
     //@ assigns this.numero;
     //@ ensures this.numero == numero;
     public void setNumero(int numero) {
