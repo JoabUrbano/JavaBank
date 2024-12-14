@@ -80,16 +80,24 @@ public class ContaCorrente implements ITributavel {
     }
 
     //@ requires valor > 0;
-    //@ requires (this.saldo + valor) <= 3000;
     //@ assigns this.saldo;
-    //@ ensures this.saldo <= 3000;
     //@ ensures this.saldo >= \old(this.saldo);
     public void depositar(double valor) {
-        if (this.saldo > 3000) 
-            throw new MoneySoMuchException("A receita confiscou seu dinheiro! Pode parar a economia não!");
-        //@ assume this.saldo == \old(this.saldo);
         this.saldo += valor;
         //@ assert this.saldo >= 0;
+    }
+
+    //@ requires cc != null;
+    //@ requires valor > 0;
+    //@ requires valor <= this.saldo;
+    public void transferir(double valor, ContaCorrente cc) throws MoneyNotAvailableException {
+        if (valor > this.saldo) {
+            //@ assert this.saldo == \old(this.saldo);
+            throw new MoneyNotAvailableException("Não há saldo disponível na conta " + cc);
+        }
+        this.saldo =  this.saldo - valor;
+        //@ assert this.saldo >= 0;
+        cc.depositar(valor);
     }
 
     //@ also
