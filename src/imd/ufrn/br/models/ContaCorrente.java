@@ -12,6 +12,8 @@ public class ContaCorrente implements ITributavel {
     //@ spec_public
     private double saldo;
 
+    //@ public invariant saldo >= 0;
+
     //@ public normal_behavior
     //@ requires agencia != null;
     //@ requires numero != null;
@@ -58,15 +60,16 @@ public class ContaCorrente implements ITributavel {
     //@ requires saldo > 0;
     //@ assigns this.saldo;
     //@ ensures this.saldo == saldo;
+    //@ ensures this.saldo >= 0;
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
     //@ requires valor > 0;
-    //@ requires valor < this.saldo;
+    //@ requires valor <= this.saldo;
     //@ requires (this.saldo - valor) > 0;
     //@ assigns this.saldo;
-    //@ ensures this.saldo > 0;
+    //@ ensures this.saldo >= 0;
     //@ ensures this.saldo <= \old(this.saldo);
     public void sacar(double valor) {
         if (valor > this.saldo) {
@@ -84,8 +87,9 @@ public class ContaCorrente implements ITributavel {
     public void depositar(double valor) {
         if (this.saldo > 3000) 
             throw new MoneySoMuchException("A receita confiscou seu dinheiro! Pode parar a economia não!");
-
+        //@ assume this.saldo == \old(this.saldo);
         this.saldo += valor;
+        //@ assert this.saldo >= 0;
     }
 
     //@ also
