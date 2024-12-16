@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="698c50f6-d33f-496a-811e-5e5d5be155d9" name="Changes" comment="implementar alguns metodos de PessoaDAO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/controllers/GeradorImpostoRenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/controllers/GeradorImpostoRenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/dao/PessoaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/dao/PessoaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/models/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/models/ContaCorrente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/models/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/models/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/imd/ufrn/br/models/SeguroVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imd/ufrn/br/models/SeguroVida.java" afterDir="false" />
-    </list>
+    <list default="true" id="698c50f6-d33f-496a-811e-5e5d5be155d9" name="Changes" comment="implementar alguns metodos de PessoaDAO" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +43,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -64,8 +59,24 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/luizgustavoou/IdeaProjects/duckbank/src/Main.java&quot;
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/ubuntu/&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/luizgustavoou/IdeaProjects/duckbank/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RunManager">
@@ -82,6 +93,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,6 +109,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699308154859</updated>
+      <workItem from="1734313772000" duration="324000" />
+      <workItem from="1734314110023" duration="120000" />
+      <workItem from="1734330285525" duration="361000" />
     </task>
     <task id="LOCAL-00001" summary="subir projeto">
       <option name="closed" value="true" />
@@ -150,6 +172,9 @@
     <option name="localTasksCounter" value="8" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -168,5 +193,9 @@
     <MESSAGE value="testar commit joab pato 3" />
     <MESSAGE value="implementar alguns metodos de PessoaDAO" />
     <option name="LAST_COMMIT_MESSAGE" value="implementar alguns metodos de PessoaDAO" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
 </project>

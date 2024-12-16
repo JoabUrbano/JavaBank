@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public class PessoaDAO {
     GeradorImpostoRenda geradorImpostoRenda = new GeradorImpostoRenda();
-    //@ non_null
+    // @ non_null
     private ArrayList<Pessoa> pessoas;
-    //@ non_null
+    // @ non_null
     private ContaCorrente ccDefault;
-    //@ non_null
+    // @ non_null
     private SeguroVida svDefault;
-    //@ non_null
+    // @ non_null
     private Pessoa pDefault;
 
     private PessoaDAO() {
@@ -54,6 +54,7 @@ public class PessoaDAO {
 
         return impostoTotal;
     }
+
     private Pessoa getMaiorPagador() {
         Pessoa pessoa = this.pDefault;
         for (Pessoa pp : pessoas) {
