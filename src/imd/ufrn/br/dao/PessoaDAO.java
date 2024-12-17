@@ -7,22 +7,24 @@ import imd.ufrn.br.models.ContaCorrente;
 
 import java.util.ArrayList;
 
+//@ non_null_by_default
 public class PessoaDAO {
     GeradorImpostoRenda geradorImpostoRenda = new GeradorImpostoRenda();
-    // @ non_null
+    //@ spec_public
     private ArrayList<Pessoa> pessoas;
-    // @ non_null
+    //@ spec_public
     private ContaCorrente ccDefault;
-    // @ non_null
+    //@ spec_public
     private SeguroVida svDefault;
-    // @ non_null
+    //@ spec_public
     private Pessoa pDefault;
 
     private PessoaDAO() {
-        this.pessoas = new ArrayList<Pessoa>();
         this.ccDefault = new ContaCorrente("0000-0", "000.000-0", 1);
         this.svDefault = new SeguroVida(1, 1, "Seguro Default", 1, 1);
         this.pDefault = new Pessoa("Pessoa Default", 1, ccDefault, svDefault);
+        this.pessoas = new ArrayList<Pessoa>(); 
+        this.pessoas.add(pDefault);
     }
 
     static private PessoaDAO instance;
@@ -35,49 +37,61 @@ public class PessoaDAO {
         return instance;
     }
 
+    //@ requires pessoa != null;
+    //@ assigns pessoas.*;
     public void cadastraPessoa(Pessoa pessoa) {
         pessoas.add(pessoa);
     }
 
+    //@ requires pessoas.size() > 1;
+    //@ assigns pessoas.*;
+    //@ ensures pessoas.size() > 0;
     public void removerPessoa(Pessoa pessoa) {
         pessoas.remove(pessoa);
     }
-
+    
+    //@ requires pessoas != null;
+    //@ requires (\forall Pessoa pessoa; pessoas.contains(pessoa); pessoa.salario > 0);
+    //@ requires (\forall Pessoa pessoa; pessoas.contains(pessoa); pessoa.getSalario() > 0);
     public double calcularTributosPessoas() {
         double impostoTotal = 0;
         double impostoIndividual = 0;
-
         for (Pessoa pessoa : pessoas) {
             impostoIndividual = geradorImpostoRenda.calculaValorTotalTributo(pessoa);
+            //@ assert impostoIndividual > 0;
+            //@ assume impostoTotal >= 0;
             impostoTotal += impostoIndividual;
+            //@ assert impostoTotal > 0;
         }
 
         return impostoTotal;
     }
 
+    //@ requires (\forall Pessoa pp; pessoas.contains(pp); pp.salario > 0);
+    //@ requires (\forall Pessoa pp; pessoas.contains(pp); pp.getSalario() > 0);
     private Pessoa getMaiorPagador() {
         Pessoa pessoa = this.pDefault;
+        double newImpostoTotal = 0;
         for (Pessoa pp : pessoas) {
+            //@ assume pp != null;
             double tributoTotal = geradorImpostoRenda.calculaValorTotalTributo(pp);
+            //@ assert tributoTotal > 0;
 
-            if (tributoTotal > geradorImpostoRenda.calculaValorTotalTributo(pessoa)) {
+            //@ assume pessoa != null;
+            //@ assume pessoa.salario > 0;
+            //@ assume pessoa.getSalario() > 0;
+            newImpostoTotal = geradorImpostoRenda.calculaValorTotalTributo(pessoa);
+            //@ assert newImpostoTotal > 0;
+            if (tributoTotal > newImpostoTotal) {
+                //@ assume pp != null;
                 pessoa = pp;
+                //@ assert pessoa != null;
             }
         }
 
         return pessoa;
     }
 
-    private Pessoa getMaiorSeguro() {
-        Pessoa pessoa = this.pDefault;
-
-        for (Pessoa pp : pessoas) {
-            if (pp.getSeguro().getValor() > pessoa.getSeguro().getValor()) {
-                pessoa = pp;
-            }
-        }
-
-        return pessoa;
-    }
-
+   
+   
 }

@@ -4,6 +4,10 @@ import imd.ufrn.br.models.Pessoa;
 
 public class GeradorImpostoRenda {
     //@ requires pessoa != null;
+    //@ requires pessoa.getConta() != null;
+    //@ requires pessoa.getSeguro() != null;
+    //@ requires pessoa.getSalario() > 0;
+    //@ requires pessoa.salario > 0;
     //@ ensures \result > 0;
     public double calculaValorTotalTributo(Pessoa pessoa) {
         double totalTributo = 0;
