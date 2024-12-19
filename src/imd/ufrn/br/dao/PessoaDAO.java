@@ -112,7 +112,6 @@ public class PessoaDAO {
     //@ requires (\forall Pessoa pp; pessoas.contains(pp); pp.getSeguro() != null);
     //@ ensures \result != null;
     private Pessoa getMaiorSeguro() {
-        //@ assume this.pDefault != null;
         Pessoa pessoa = this.pDefault;
         //@ assert pessoa != null;
         

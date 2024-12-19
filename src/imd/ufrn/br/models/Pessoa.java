@@ -22,6 +22,10 @@ public class Pessoa implements ITributavel {
     //@ ensures this.salario == salario;
     //@ ensures this.conta == conta;
     //@ ensures this.seguro == seguro;
+    //@ ensures nome != null;
+    //@ ensures 0 < salario < Double.MAX_VALUE;
+    //@ ensures conta != null;
+    //@ ensures seguro != null;
     //@ pure
     public Pessoa(String nome, double salario, ContaCorrente conta, SeguroVida seguro)  {
         this.nome = nome;
@@ -38,6 +42,7 @@ public class Pessoa implements ITributavel {
     //@ requires nome != null;
     //@ assigns this.nome;
     //@ ensures this.nome == nome;
+    //@ ensures nome != null;
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -50,6 +55,7 @@ public class Pessoa implements ITributavel {
     //@ requires salario > 0;
     //@ assigns this.salario;
     //@ ensures this.salario == salario;
+    //@ ensures salario > 0;
     public void setSalario(double salario) {
         this.salario = salario;
     }
@@ -62,6 +68,7 @@ public class Pessoa implements ITributavel {
     //@ requires conta != null;
     //@ assigns this.conta;
     //@ ensures this.conta == conta;
+    //@ ensures conta != null;
     public void setConta(ContaCorrente conta) {
         this.conta = conta;
     }
@@ -74,6 +81,7 @@ public class Pessoa implements ITributavel {
     //@ requires seguro != null;
     //@ assigns this.seguro;
     //@ ensures this.seguro == seguro;
+    //@ ensures seguro != null;
     public void setSeguro(SeguroVida seguro) {
         this.seguro = seguro;
     }

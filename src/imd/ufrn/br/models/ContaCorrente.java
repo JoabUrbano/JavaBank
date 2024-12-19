@@ -85,12 +85,16 @@ public class ContaCorrente implements ITributavel {
 
     //@ requires cc != null;
     //@ requires valor > 0;
+    //@ requires this.saldo >= 0;
     //@ requires valor <= this.saldo;
+    //@ ensures this.saldo >= 0;
     public void transferir(double valor, ContaCorrente cc) throws MoneyNotAvailableException {
         if (valor > this.saldo) {
             //@ assert this.saldo == \old(this.saldo);
+            //@ assert this.saldo >= 0;
             throw new MoneyNotAvailableException("Não há saldo disponível na conta " + cc);
         }
+        //@ assert this.saldo >= valor;
         this.saldo =  this.saldo - valor;
         //@ assert this.saldo >= 0;
         cc.depositar(valor);
